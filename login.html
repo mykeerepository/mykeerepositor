@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+svg.x-icon {
+    visibility: hidden;
+}
+ @media (max-width: 768px) {
+     svg.x-icon {
+    visibility: visible;
+}
+ }     
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: white;
+    min-height: 100vh;
+}
+a#\*\$ {
+    left: -27.5px;
+    position: relative;
+    top: -1px;
+}
+a#_\& {
+    position: relative;
+    left: 20px;
+}      
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 28rem;
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    left: 0;
+    top: -90px;
+    padding: 0.5rem;
+    color: black;
+}
+
+.x-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.form-content {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 1.125rem;
+    color: #111827;
+}
+
+.country-select {
+    border-bottom: 1px solid #E5E7EB;
+    padding-bottom: 0.5rem;
+    color: #4B5563;
+}
+
+input[type="tel"] {
+    border: none;
+    border-bottom: 1px solid #E5E7EB;
+    padding: 0.5rem 0;
+    width: 100%;
+    font-size: 1rem;
+    color: #4B5563;
+}
+
+input[type="tel"]::placeholder {
+    color: #9CA3AF;
+}
+
+input[type="tel"]:focus {
+    outline: none;
+    border-bottom-color:  #1D4ED8;
+}
+
+.other-options {
+    background: none;
+    border: none;
+    color: #2563EB;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.verification-notice {
+    color: #9CA3AF;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.continue-button {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 1rem;
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.continue-button:hover {
+    background-color:   #2196F3;
+}
+
+.bottom-links {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.bottom-links a {
+    color: #2563EB;
+    text-decoration: none;
+}
+
+.bottom-links a:hover {
+    color: #1D4ED8;
+}
+  </style>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <!-- Close Button -->
+            <a href="#" class="close-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="x-icon">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </a>
+            
+            <!-- Form Content -->
+            <div class="form-content">
+                <h1>Log In With Your ID</h1>
+
+                
+                <!-- Username or Email-->
+                <div class="input-group">
+                    <label>Username or Email</label>
+                    <input type="tel" id="phoneInput" placeholder="Username or Email">
+                </div>
+
+                <!-- Phone Input -->
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="tel" id="phoneInput" placeholder="Enter Password">
+                </div>
+
+                <!-- Other Login Options -->
+                <button class="other-options">Forgotten Password?</button>
+
+                <!-- Verification Notice -->
+                <p class="verification-notice">
+                    The above mobile number is used only for login verification.
+                </p>
+
+                <!-- Continue Button -->
+                <button class="continue-button">Accept and Continue</button>
+
+                <!-- Bottom Links -->
+                <div class="bottom-links">
+                    <a href="#" id="_&">Recover my Account</a>
+                    <a href="Signup.html" id="*$">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    const phoneInput = document.getElementById('phoneInput');
+    const continueButton = document.querySelector('.continue-button');
+    const closeButton = document.querySelector('.close-button');
+
+    // Handle phone input
+    phoneInput.addEventListener('input', function(e) {
+        // You can add phone number validation here if needed
+        const phoneNumber = e.target.value;
+        console.log('Phone number:', phoneNumber);
+    });
+
+    // Handle continue button click
+    continueButton.addEventListener('click', function() {
+        const phoneNumber = phoneInput.value;
+        if (phoneNumber) {
+            console.log('Submitting phone number:', phoneNumber);
+            // Add your login logic here
+        } else {
+            alert('Please enter a phone number');
+        }
+    });
+
+    // Handle close button click
+    closeButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('Close button clicked');
+        // Add your close logic here
+    });
+});
+    </script>
+</body>
+</html>
