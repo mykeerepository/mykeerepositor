@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <meta name="description" content="VK ID Email Input Screen" />
+  </head>
+  <style>
+    :root {
+  --vk-blue: #0077FF;
+  --vk-blue-hover: #0066CC;
+  --vk-gray: #F0F2F5;
+  --vk-gray-hover: #E5E7EA;
+  --vk-text: #000000;
+  --vk-text-secondary: #818C99;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: white;
+  color: var(--vk-text);
+}
+
+    /* Add styles for the default button */
+    .button-default {
+      width: 100%;
+      padding: 0.788rem;
+      border: none;
+      border-radius: 0.75rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin-bottom: 0.75rem;
+      background-color: var(--vk-gray);
+      color: var(--vk-text);
+      display: block; /* Visible by default */
+    }
+
+    .button-primary {
+      display: none; /* Hidden by default */
+    }
+
+    .button-primary.visible {
+      display: block;
+    }
+
+    /* Container for the checkbox and label */
+    .save-user {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Checkbox styling */
+    .checkbox {
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 2px solid var(--vk-blue, #007bff); /* Default blue border color */
+      border-radius: 50%; /* Circular shape */
+      cursor: pointer;
+      -webkit-appearance: none; /* Remove default checkbox styling */
+      -moz-appearance: none; /* Remove default checkbox styling */
+      appearance: none; /* Remove default checkbox styling */
+      background-color: white; /* Initial background color */
+      position: relative;
+      outline: none; /* Remove focus outline */
+      transition: background-color 0.3s, border-color 0.3s; /* Smooth transitions */
+    }
+
+    /* Checked state: Show background color and white tick */
+    .checkbox:checked {
+      background-color: var(--vk-blue, #007bff); /* Highlighted background color */
+      border-color: var(--vk-blue, #007bff); /* Same as background */
+    }
+
+    /* Add a white tick mark */
+  .checkbox:checked::after {
+  content: '';
+  width: 5px; /* Reduced width for a smaller tick */
+  height: 10px; /* Reduced height for a smaller tick */
+  border: solid white; /* White tick color */
+  border-width: 0 2px 2px 0; /* Define tick thickness */
+  position: absolute;
+  top: 45%; /* Push the tick upwards */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%) rotate(45deg); /* Position and rotate for the tick */
+  display: inline-block;
+}
+
+
+    /* Label styling */
+    .save-user-label {
+      font-size: 1rem;
+      cursor: pointer;
+      color: #333; /* Label text color */
+    }
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.header {
+  width: 100%;
+  max-width: 28rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  left: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--vk-blue);
+  padding: 0.5rem;
+}
+
+.back-button:hover {
+  color: var(--vk-blue-hover);
+}
+
+.logo {
+  margin: 0 auto;
+  height: 2rem;
+}
+
+.content {
+  width: 100%;
+  max-width: 28rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--vk-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.email-input {
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background: white;
+  margin-bottom: 1rem;
+}
+
+.email-input:focus-within {
+  border-color: var(--vk-blue);
+}
+
+.input-field {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.125rem;
+}
+
+.save-user {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 4px;
+    margin-bottom: 1.5rem;
+}
+.checkbox:checked {
+  background-color: var(--vk-blue);
+}
+
+.save-user-label {
+  font-size: 1rem;
+  color: var(--vk-text-secondary);
+  cursor: pointer;
+}
+
+.help-icon {
+  color: var(--vk-text-secondary);
+  cursor: help;
+}
+
+.button {
+  width: 100%;
+  padding: 0.788rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+}
+
+.button-primary {
+  background-color: var(--vk-blue);
+  color: white;
+}
+.button-primary:hover {
+  background-color: var(--vk-blue-hover);
+}
+
+.button-secondary {
+  background-color: var(--vk-gray);
+  color: var(--vk-text);
+}
+
+.button-secondary:hover {
+  background-color: var(--vk-gray-hover);
+}
+
+.terms {
+  font-size: 0.875rem;
+  color: var(--vk-text-secondary);
+  text-align: center;
+}
+
+.terms a {
+  color: var(--vk-blue);
+  text-decoration: none;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .button {
+    padding: 0.788rem;
+}
+}
+  </style>
+  <body>
+    <div class="container">
+      <header class="header">
+        <button class="back-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <img src="/lovable-uploads/d544bf60-8c34-443a-b1ce-c1fd6dc1cef6.png" alt="VK ID" class="logo">
+      </header>
+
+      <main class="content">
+        <h1 class="title">Enter email address</h1>
+        <p class="subtitle">You'll use your email address to sign in to your account</p>
+
+        <div class="email-input">
+          <input type="email" id="email" class="input-field" placeholder="Email address">
+        </div>
+
+        <div class="save-user">
+          <input type="checkbox" id="save-user" class="checkbox">
+          <label for="save-user" class="save-user-label">Remember me</label>
+        </div>
+
+        <div class="button-default">Continue</div>
+        <button class="button button-primary">Continue</button>
+        <button class="button button-secondary">Login to Your Account</button>
+
+        <p class="terms">
+          By Signing up, you continue to agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+        </p>
+      </main>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+  const emailInput = document.getElementById('email');
+  const saveUserCheckbox = document.getElementById('save-user');
+  const defaultButton = document.querySelector('.button-default');
+  const primaryButton = document.querySelector('.button-primary');
+  const createAccountButton = document.querySelector('.button-secondary');
+
+  emailInput.addEventListener('input', function() {
+    const email = emailInput.value;
+    const isValidGmail = email.length >= 4 && email.endsWith('@gmail.com');
+    
+    if (isValidGmail) {
+      defaultButton.style.display = 'none';
+      primaryButton.style.display = 'block';
+    } else {
+      defaultButton.style.display = 'block';
+      primaryButton.style.display = 'none';
+    }
+  });
+
+  primaryButton.addEventListener('click', function() {
+    const email = emailInput.value;
+    const rememberMe = saveUserCheckbox.checked;
+    
+    if (email) {
+      console.log('Email:', email);
+      console.log('Remember me:', rememberMe);
+      // Add your form submission logic here
+    }
+  });
+
+  createAccountButton.addEventListener('click', function() {
+    console.log('Create account clicked');
+    // Add your create account logic here
+  });
+});
+    </script>
+  </body>
+</html>
