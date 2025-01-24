@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Interface</title>
+    <meta name="description" content="Lovable Generated Project" />
+    <meta name="author" content="Lovable" />
+    <meta property="og:image" content="/og-image.png" />
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app">
+      <div class="chat-list" id="chatList">
+        <div class="chat-list-header">
+          <h2>Messages</h2>
+        </div>
+        <div class="chat-list-content" id="chatListContent">
+          <!-- Chat list items will be inserted here by JavaScript -->
+        </div>
+      </div>
+      <div class="chat-view" id="chatView">
+        <div class="chat-view-placeholder" id="chatViewPlaceholder">
+          <p>Select a conversation to start messaging</p>
+        </div>
+        <div class="chat-view-content hidden" id="chatViewContent">
+          <div class="chat-view-header">
+            <button class="back-button" id="backButton">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <div class="chat-user-info">
+              <div class="avatar" id="chatViewAvatar">
+                <!-- Avatar content will be inserted here -->
+              </div>
+              <div class="user-details">
+                <h2 id="chatViewUsername"></h2>
+                <p id="chatViewStatus"></p>
+              </div>
+            </div>
+          </div>
+          <div class="chat-messages" id="chatMessages">
+            <!-- Messages will be inserted here -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
